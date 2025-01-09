@@ -137,7 +137,7 @@ module.exports = async (req, res) => {
     }
 
     const { reg_no, year } = req.query;
-    const sem = req.query.sem || "I"; // Default to semester I if no sem is provided
+    const sem = req.query.sem || "VI"; // Default to semester VI if no sem is provided
     if (!reg_no || !year) {
         return res.status(400).json({ error: "Missing 'reg_no' or 'year' query parameter" });
     }

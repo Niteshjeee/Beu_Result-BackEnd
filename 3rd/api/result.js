@@ -3,9 +3,8 @@ const cheerio = require('cheerio');
 
 // Base URL mapping by year
 const BASE_URLS = {
-    2023: 'http://results.beup.ac.in/ResultsBTech1stSem2023_B2023Pub.aspx',
-    2022: 'http://results.beup.ac.in/ResultsBTech1stSem2022_B2022Pub.aspx',
-    2024: 'http://results.beup.ac.in/lahsun.html',
+    2023: 'http://results.beup.ac.in/ResultsBTech3rdSem2023_B2022Pub.aspx',
+    2024: 'http://results.beup.ac.in/ResultsBTech3rdSem2025_B2023Pub.aspx',
 };
 
 // CORS headers
@@ -138,7 +137,7 @@ module.exports = async (req, res) => {
     }
 
     const { reg_no, year } = req.query;
-    const sem = req.query.sem || "I"; // Default to semester I if no sem is provided
+    const sem = req.query.sem || "III"; // Default to semester III if no sem is provided
     if (!reg_no || !year) {
         return res.status(400).json({ error: "Missing 'reg_no' or 'year' query parameter" });
     }

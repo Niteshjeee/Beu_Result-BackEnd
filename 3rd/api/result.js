@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 
 // Base URL mapping by year
 const BASE_URLS = {
-    2023: 'http://results.beup.ac.in/ResultsBTech3rdSem2023_B2022Pub.aspx',
+    2023: 'https://results.beup.ac.in/ResultsBTech3rdSem2023_B2022Pub.aspx',
     2024: 'http://results.beup.ac.in/ResultsBTech3rdSem2025_B2023Pub.aspx',
 };
 

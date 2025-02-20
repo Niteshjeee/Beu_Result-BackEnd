@@ -1,0 +1,29 @@
+name: Auto-Update Fork
+on:
+  push:
+    branches:
+      - main  # Replace with the branch you want to sync (e.g., `main` or `master`)
+
+jobs:
+  update-fork:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Fork
+        uses: actions/checkout@v4
+        with:
+          repository: try-to-learn-now/Beu_Result-BackEnd  # Your fork's URL
+          token: ${{ secrets.BOT_TOKEN }}  # Use your custom GitHub token
+          fetch-depth: 0  # Fetch all history
+
+      - name: Sync with Upstream
+        run: |
+          git remote add upstream https://github.com/Niteshjeee/Beu_Result-BackEnd.git
+          git fetch upstream
+          git checkout main  # Replace with the branch name
+          git rebase upstream/main  # Sync with upstream branch
+
+      - name: Push Changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git push origin main  # Push to your fork

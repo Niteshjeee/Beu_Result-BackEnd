@@ -1,8 +1,10 @@
 name: Auto-Update Fork
 on:
+  schedule:
+    - cron: "0 0 * * *"  # Check for updates daily at midnight UTC
   push:
     branches:
-      - main  # Replace with the branch you want to sync (e.g., `main` or `master`)
+      - main  # Trigger on pushes to your fork's main branch
 
 jobs:
   update-fork:
@@ -11,19 +13,17 @@ jobs:
       - name: Checkout Fork
         uses: actions/checkout@v4
         with:
-          repository: try-to-learn-now/Beu_Result-BackEnd  # Your fork's URL
-          token: ${{ secrets.BOT_TOKEN }}  # Use your custom GitHub token
-          fetch-depth: 0  # Fetch all history
+          fetch-depth: 0  # Ensure full history is fetched
 
       - name: Sync with Upstream
         run: |
           git remote add upstream https://github.com/Niteshjeee/Beu_Result-BackEnd.git
           git fetch upstream
-          git checkout main  # Replace with the branch name
-          git rebase upstream/main  # Sync with upstream branch
+          git checkout main
+          git reset --hard upstream/main  # Set your main branch to match upstream
 
       - name: Push Changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git push origin main  # Push to your fork
+          git push origin main --force  # Force push to mirror upstream

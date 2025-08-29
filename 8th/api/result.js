@@ -4,8 +4,8 @@ const cheerio = require('cheerio');
 // Base URL mapping by year
 const BASE_URLS = {
     2023: 'http://results.beup.ac.in/ResultsBTech8thSem2023Pub.aspx',
-    2022: 'http://results.beup.ac.in/ResultsBTech8thSem2024Pub.aspx',
-    2024: 'http://results.beup.ac.in/ResultsBTech8thSem2025Pub.aspx',
+    2024: 'http://results.beup.ac.in/ResultsBTech8thSem2024Pub.aspx',
+    2025: 'http://results.beup.ac.in/ResultsBTech8thSem2025Pub.aspx',
 };
 
 // CORS headers

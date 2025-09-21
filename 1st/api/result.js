@@ -5,8 +5,8 @@ const cheerio = require('cheerio');
 const BASE_URLS = {
     2022: 'http://results.beup.ac.in/ResultsBTech1stSem2022_B2022Pub.aspx',
     2023: 'http://results.beup.ac.in/ResultsBTech1stSem2023_B2023Pub.aspx',
-    2024: 'http://results.beup.ac.in/ResultsBTech1stSem2025_B2024Pub.aspx',
-    2025: 'http://results.beup.ac.in/ResultsBTech1stSem2024_B2024Pub.aspx',
+    2024: 'http://results.beup.ac.in/ResultsBTech1stSem2024_B2024Pub.aspx',
+    
     
 };
 

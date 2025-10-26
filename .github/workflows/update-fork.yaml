@@ -1,0 +1,29 @@
+name: Auto-Update Fork
+on:
+  schedule:
+    - cron: "0 0 * * *"  # Check for updates daily at midnight UTC
+  push:
+    branches:
+      - main  # Trigger on pushes to your fork's main branch
+
+jobs:
+  update-fork:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Fork
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Ensure full history is fetched
+
+      - name: Sync with Upstream
+        run: |
+          git remote add upstream https://github.com/Niteshjeee/Beu_Result-BackEnd.git
+          git fetch upstream
+          git checkout main
+          git reset --hard upstream/main  # Set your main branch to match upstream
+
+      - name: Push Changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git push origin main --force  # Force push to mirror upstream

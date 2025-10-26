@@ -5,7 +5,7 @@ const cheerio = require('cheerio');
 const BASE_URLS = {
     2022: 'http://results.beup.ac.in/ResultsBTech5thSem2022_B2020Pub.aspx',
     2023: 'http://results.beup.ac.in/ResultsBTech5thSem2023_B2021Pub.aspx',
-    2024: 'http://results.beup.ac.in/lahsun.html',
+    2024: 'http://results.beup.ac.in/ResultsBTech5thSem2024_B2022Pub.aspx',
 };
 
 // CORS headers
